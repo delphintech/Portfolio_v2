@@ -29,7 +29,7 @@
 	}
 
 	.section {
-		@apply scroll-mt-18 pt-12
+		@apply scroll-mt-18 pt-12 bg-light
 	}
 
 	.badge {
