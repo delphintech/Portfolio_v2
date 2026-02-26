@@ -1,5 +1,6 @@
 import './assets/style.css'
 
+import { Navbar } from './sections/navbar'
 import { Landing } from './sections/landing'
 import { About } from './sections/about'
 import { Projects } from './sections/projects'
@@ -8,7 +9,8 @@ import { Contact } from './sections/contact'
 
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen text-dark">
+      <Navbar />
       <Landing />
       <About />
       <Projects />

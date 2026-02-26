@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@theme {
+	/* Colors */
+	/* --color-main: #ef3724;
+	--color-dark: #2f4858;
+	--color-back: #bea6a0;
+	--color-light: #fff5f1; */
+
+  	/* Colors */
+	--color-main: #ef3724;
+	--color-dark: #2f4858;
+	--color-light: #fdfdfd;
+	--color-muted: #8c8c9f;
+
+	--color-accent1: #ff9f43;
+	--color-accent2: #1dbfcf;
+	--color-accent3: #9b59b6;
+	--color-accent4: #2ecc71;
+
+	/* Fonts */
+	--font-lta: 'LTAzer', serif;
+	--font-sans: "Inter", system-ui, serif;
+}
+
+@layer components {
+	.grad {
+		@apply bg-linear-to-r from-main via-accent1 to-accent3 bg-clip-text text-transparent
+	}
+
+	.section {
+		@apply scroll-mt-18 pt-12
+	}
+
+	.badge {
+		@apply mx-auto w-fit font-bold px-6 py-4 bg-muted/30 text-main text-base rounded-full drop-shadow-md 
+	}
+}

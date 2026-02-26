@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import portrait from '../assets/images/Portrait-2023.jpg'
+// import portrait from '../assets/images/Portrait-2023.jpg'
+import portrait from '../assets/images/portrait pro clair.png'
 import { Coffee, Heart, Code2, Palette } from 'lucide-react';
 
 export function About() {
@@ -13,8 +14,8 @@ export function About() {
   return (
     <section className="py-32 px-6 bg-white relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-10 right-20 w-32 h-32 border-4 border-dashed border-amber-300 rounded-full opacity-50" />
-      <div className="absolute bottom-20 left-10 w-24 h-24 border-4 border-dashed border-rose-300 rounded-full opacity-50" />
+      <div className="absolute top-10 right-20 w-32 h-32 border-4 border-dashed border-accent1 rounded-full opacity-50" />
+      <div className="absolute bottom-20 left-10 w-24 h-24 border-4 border-dashed border-accent3 rounded-full opacity-50" />
 
       <div className="max-w-6xl mx-auto">
         <motion.div
