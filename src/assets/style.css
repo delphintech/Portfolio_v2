@@ -25,7 +25,8 @@
 
 @layer components {
 	.grad {
-		@apply bg-linear-to-r from-main via-accent1 to-accent3 bg-clip-text text-transparent
+		@apply bg-linear-to-r from-main to-accent1 bg-clip-text text-transparent
+		/* @apply bg-linear-to-r from-main via-accent1 to-accent3 bg-clip-text text-transparent */
 	}
 
 	.section {

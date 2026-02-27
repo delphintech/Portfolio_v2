@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
+import { ProjectModal } from '../components/projects_modal';
 
 export function Projects() {
-  const projects = [
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+   const projects = [
     {
       title: 'Artisan Marketplace',
       description:
@@ -11,6 +16,19 @@ export function Projects() {
         'https://images.unsplash.com/photo-1642052503083-9b9f61e75710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwbGF5b3V0fGVufDF8fHx8MTc3MjEwNzM3MHww&ixlib=rb-4.1.0&q=80&w=1080',
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       color: 'rose',
+      longDescription:
+        'A comprehensive e-commerce solution designed specifically for artisans and makers. The platform features a beautiful, intuitive interface that showcases handmade products while providing robust tools for inventory management, order processing, and customer engagement.',
+      role: 'Lead Full-Stack Developer',
+      duration: '4 months',
+      team: '5 members',
+      features: [
+        'Custom product builder with real-time preview for personalized items',
+        'Integrated payment processing with Stripe, supporting multiple currencies',
+        'Advanced search and filtering with AI-powered recommendations',
+        'Seller dashboard with analytics and inventory management',
+        'Customer review system with photo uploads',
+        'Mobile-responsive design optimized for both buyers and sellers',
+      ],
     },
     {
       title: 'MindFlow App',
@@ -20,6 +38,19 @@ export function Projects() {
         'https://images.unsplash.com/photo-1661246626039-5429b8f7488a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzcyMDMzMTcyfDA&ixlib=rb-4.1.0&q=80&w=1080',
       tags: ['React Native', 'TypeScript', 'Firebase'],
       color: 'amber',
+      longDescription:
+        'MindFlow combines mindfulness practices with productivity tools to help users achieve better work-life balance. The app uses behavioral psychology principles to create sustainable habits and reduce stress through guided meditation and progress tracking.',
+      role: 'Mobile Developer & UI Designer',
+      duration: '3 months',
+      team: '3 members',
+      features: [
+        'Guided meditation sessions with customizable durations and themes',
+        'Habit tracking with streak counters and visual progress indicators',
+        'Daily mood logging with insights and patterns analysis',
+        'Breathing exercises with animated visual guides',
+        'Pomodoro timer integrated with break reminders',
+        'Offline mode for uninterrupted practice',
+      ],
     },
     {
       title: 'DataViz Dashboard',
@@ -29,6 +60,19 @@ export function Projects() {
         'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXNoYm9hcmQlMjBhbmFseXRpY3N8ZW58MXx8fHwxNzcyMDYwODU1fDA&ixlib=rb-4.1.0&q=80&w=1080',
       tags: ['Vue.js', 'D3.js', 'PostgreSQL'],
       color: 'blue',
+      longDescription:
+        'A powerful analytics platform that transforms complex data into actionable insights. Built for enterprise clients who need real-time monitoring and detailed reporting across multiple data sources.',
+      role: 'Frontend Lead',
+      duration: '6 months',
+      team: '8 members',
+      features: [
+        'Real-time data streaming with WebSocket connections',
+        'Interactive charts and graphs using D3.js and custom visualizations',
+        'Customizable dashboard layouts with drag-and-drop widgets',
+        'Advanced filtering and data drill-down capabilities',
+        'Automated report generation and scheduled email delivery',
+        'Multi-tenant architecture with role-based access control',
+      ],
     },
     {
       title: 'Creative Portfolio Builder',
@@ -38,6 +82,19 @@ export function Projects() {
         'https://images.unsplash.com/photo-1750056393300-102f7c4b8bc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdlYiUyMGRlc2lnbiUyMG1vY2t1cHxlbnwxfHx8fDE3NzIwNDQ5NTF8MA&ixlib=rb-4.1.0&q=80&w=1080',
       tags: ['React', 'Next.js', 'Tailwind CSS'],
       color: 'orange',
+      longDescription:
+        'An intuitive website builder that empowers creatives to showcase their work without needing technical skills. Features professional templates, seamless hosting, and powerful customization options.',
+      role: 'Solo Developer & Designer',
+      duration: '5 months',
+      team: 'Solo project',
+      features: [
+        'Visual drag-and-drop editor with real-time preview',
+        'Library of professionally designed templates',
+        'Custom domain support with automatic SSL certificates',
+        'Built-in image optimization and lazy loading',
+        'SEO tools and meta tag customization',
+        'Analytics integration and performance monitoring',
+      ],
     },
   ];
 
@@ -46,6 +103,10 @@ export function Projects() {
     amber: { border: 'border-amber-400', bg: 'bg-amber-50', text: 'text-amber-600' },
     blue: { border: 'border-blue-400', bg: 'bg-blue-50', text: 'text-blue-600' },
     orange: { border: 'border-orange-400', bg: 'bg-orange-50', text: 'text-orange-600' },
+  };
+
+  const handleProjectClick = (project: typeof projects[0]) => {
+    setSelectedProject(project);
   };
 
   return (
@@ -86,6 +147,7 @@ export function Projects() {
         <div className="grid md:grid-cols-2 gap-12">
           {projects.map((project, index) => {
             const colors = colorClasses[project.color];
+
             return (
               <motion.div
                 key={project.title}
@@ -95,6 +157,7 @@ export function Projects() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
                 className="group relative"
+                onClick={() => handleProjectClick(project)}
               >
                 {/* Hand-drawn border effect */}
                 <div className="relative">
@@ -120,8 +183,8 @@ export function Projects() {
                       <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
                       {/* Overlay on hover */}
                       <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
-                        <button className="p-3 bg-white rounded-full hover:scale-110 transition-transform">
-                          <ExternalLink className="w-5 h-5 text-gray-900" />
+                        <button onClick={() => handleProjectClick(project)} className="p-3 bg-white rounded-full hover:scale-110 transition-transform">
+                          <ExternalLink onClick={(e) => { setIsModalOpen(true); }}className="w-5 h-5 text-gray-900" />
                         </button>
                         <button className="p-3 bg-white rounded-full hover:scale-110 transition-transform">
                           <Github className="w-5 h-5 text-gray-900" />
@@ -158,6 +221,12 @@ export function Projects() {
           })}
         </div>
       </div>
+
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={selectedProject}
+      />
     </section>
   );
 }
