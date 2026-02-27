@@ -2,115 +2,24 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
 import { ProjectModal } from '../components/projects_modal';
+import { projects_data } from '../data/projects_data';
+import type { Colors } from '../components/projects_modal';
+import ProjectBorder from '../assets/ui/projectBorder';
 
 export function Projects() {
+  const [modalColors, setModalColors]  = useState<Colors >({ border: 'border-accent1/90', bg: 'bg-accent1/20', text: 'text-accent1' })
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-   const projects = [
-    {
-      title: 'Artisan Marketplace',
-      description:
-        'A handcrafted e-commerce platform connecting local artisans with customers worldwide. Built with React, Node.js, and Stripe integration.',
-      image:
-        'https://images.unsplash.com/photo-1642052503083-9b9f61e75710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwbGF5b3V0fGVufDF8fHx8MTc3MjEwNzM3MHww&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      color: 'rose',
-      longDescription:
-        'A comprehensive e-commerce solution designed specifically for artisans and makers. The platform features a beautiful, intuitive interface that showcases handmade products while providing robust tools for inventory management, order processing, and customer engagement.',
-      role: 'Lead Full-Stack Developer',
-      duration: '4 months',
-      team: '5 members',
-      features: [
-        'Custom product builder with real-time preview for personalized items',
-        'Integrated payment processing with Stripe, supporting multiple currencies',
-        'Advanced search and filtering with AI-powered recommendations',
-        'Seller dashboard with analytics and inventory management',
-        'Customer review system with photo uploads',
-        'Mobile-responsive design optimized for both buyers and sellers',
-      ],
-    },
-    {
-      title: 'MindFlow App',
-      description:
-        'A mindfulness and productivity mobile app helping users balance work and wellness. Features include meditation timers and habit tracking.',
-      image:
-        'https://images.unsplash.com/photo-1661246626039-5429b8f7488a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzcyMDMzMTcyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['React Native', 'TypeScript', 'Firebase'],
-      color: 'amber',
-      longDescription:
-        'MindFlow combines mindfulness practices with productivity tools to help users achieve better work-life balance. The app uses behavioral psychology principles to create sustainable habits and reduce stress through guided meditation and progress tracking.',
-      role: 'Mobile Developer & UI Designer',
-      duration: '3 months',
-      team: '3 members',
-      features: [
-        'Guided meditation sessions with customizable durations and themes',
-        'Habit tracking with streak counters and visual progress indicators',
-        'Daily mood logging with insights and patterns analysis',
-        'Breathing exercises with animated visual guides',
-        'Pomodoro timer integrated with break reminders',
-        'Offline mode for uninterrupted practice',
-      ],
-    },
-    {
-      title: 'DataViz Dashboard',
-      description:
-        'An analytics dashboard for visualizing complex data sets with interactive charts and real-time updates. Perfect for data-driven decision making.',
-      image:
-        'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXNoYm9hcmQlMjBhbmFseXRpY3N8ZW58MXx8fHwxNzcyMDYwODU1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['Vue.js', 'D3.js', 'PostgreSQL'],
-      color: 'blue',
-      longDescription:
-        'A powerful analytics platform that transforms complex data into actionable insights. Built for enterprise clients who need real-time monitoring and detailed reporting across multiple data sources.',
-      role: 'Frontend Lead',
-      duration: '6 months',
-      team: '8 members',
-      features: [
-        'Real-time data streaming with WebSocket connections',
-        'Interactive charts and graphs using D3.js and custom visualizations',
-        'Customizable dashboard layouts with drag-and-drop widgets',
-        'Advanced filtering and data drill-down capabilities',
-        'Automated report generation and scheduled email delivery',
-        'Multi-tenant architecture with role-based access control',
-      ],
-    },
-    {
-      title: 'Creative Portfolio Builder',
-      description:
-        'A drag-and-drop portfolio builder for creatives with customizable templates and seamless hosting. No coding required!',
-      image:
-        'https://images.unsplash.com/photo-1750056393300-102f7c4b8bc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdlYiUyMGRlc2lnbiUyMG1vY2t1cHxlbnwxfHx8fDE3NzIwNDQ5NTF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['React', 'Next.js', 'Tailwind CSS'],
-      color: 'orange',
-      longDescription:
-        'An intuitive website builder that empowers creatives to showcase their work without needing technical skills. Features professional templates, seamless hosting, and powerful customization options.',
-      role: 'Solo Developer & Designer',
-      duration: '5 months',
-      team: 'Solo project',
-      features: [
-        'Visual drag-and-drop editor with real-time preview',
-        'Library of professionally designed templates',
-        'Custom domain support with automatic SSL certificates',
-        'Built-in image optimization and lazy loading',
-        'SEO tools and meta tag customization',
-        'Analytics integration and performance monitoring',
-      ],
-    },
-  ];
+  const projects = projects_data
 
-  const colorClasses: Record<string, { border: string; bg: string; text: string }> = {
-    rose: { border: 'border-rose-400', bg: 'bg-rose-50', text: 'text-rose-600' },
-    amber: { border: 'border-amber-400', bg: 'bg-amber-50', text: 'text-amber-600' },
-    blue: { border: 'border-blue-400', bg: 'bg-blue-50', text: 'text-blue-600' },
-    orange: { border: 'border-orange-400', bg: 'bg-orange-50', text: 'text-orange-600' },
-  };
-
-  const handleProjectClick = (project: typeof projects[0]) => {
+  const handleProjectClick = (project: typeof projects[0], colors: Colors) => {
     setSelectedProject(project);
+    setModalColors(colors)
   };
 
   return (
-    <section className="py-32 px-6 bg-linear-to-b from-white to-amber-50/30">
+    <section className="section">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -120,33 +29,17 @@ export function Projects() {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl mb-6 relative inline-block">
-            Featured Projects
-            {/* Hand-drawn underline */}
-            <svg
-              className="absolute -bottom-4 left-0 w-full"
-              height="20"
-              viewBox="0 0 500 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 12 Q 125 8, 250 10 T 495 15"
-                stroke="currentColor"
-                strokeWidth="4"
-                fill="none"
-                className="text-amber-400"
-                strokeLinecap="round"
-              />
-            </svg>
+            Projects
           </h2>
-          <p className="text-xl text-gray-600 mt-8">
-            A collection of projects I've poured my heart into ❤️
+          <p className="text-xl text-dark mt-8">
+            Form embedded exercises to Full Stack apps, always made with ❤️
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {projects.map((project, index) => {
-            const colors = colorClasses[project.color];
+            const i = index % 4 + 1
+            const colors = { border: `border-accent${i}/90`, bg: `bg-accent${i}/20`, text: `text-accent${i}` }
 
             return (
               <motion.div
@@ -156,61 +49,45 @@ export function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative"
-                onClick={() => handleProjectClick(project)}
+                className="group relative w-full max-w-md"
+                onClick={() => handleProjectClick(project, colors)}
               >
-                {/* Hand-drawn border effect */}
                 <div className="relative">
-                  <svg
-                    className="absolute -inset-3 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)] pointer-events-none"
-                    viewBox="0 0 400 550"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 12 L390 8 L395 540 L10 545 Z"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      className={colors.border}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="white"
-                    />
-                  </svg>
+                  <ProjectBorder className={`absolute -inset-3 w-[110%] h-[105%] pointer-events-none ${colors.text}`} />
 
-                  <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg p-6">
+                  <div className="relative bg-light rounded-2xl overflow-hidden shadow-lg p-6">
                     <div className="relative overflow-hidden rounded-xl mb-6 aspect-video">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+                      <img src={project.cover} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
                       {/* Overlay on hover */}
-                      <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
-                        <button onClick={() => handleProjectClick(project)} className="p-3 bg-white rounded-full hover:scale-110 transition-transform">
-                          <ExternalLink onClick={(e) => { setIsModalOpen(true); }}className="w-5 h-5 text-gray-900" />
+                      <div className="absolute inset-0 bg-linear-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
+                        <button onClick={() => handleProjectClick(project, colors)} className="p-3 bg-light rounded-full hover:scale-110 transition-transform">
+                          <ExternalLink onClick={() => { setIsModalOpen(true); }} className="w-5 h-5 text-dark" />
                         </button>
-                        <button className="p-3 bg-white rounded-full hover:scale-110 transition-transform">
-                          <Github className="w-5 h-5 text-gray-900" />
-                        </button>
+                        <a href={project.github} className="p-3 bg-light rounded-full hover:scale-110 transition-transform" target="_blank">
+                          <Github className="w-5 h-5 text-dark" />
+                        </a>
                       </div>
                     </div>
 
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                    <h3 className="text-2xl font-bold mb-3 text-dark">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-dark/80 mb-6 leading-relaxed">
                       {project.description}
                     </p>
 
                     <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
+                      {project.techs.map((tag) => (
                         <span
                           key={tag}
-                          className={`px-4 py-2 ${colors.bg} ${colors.text} rounded-full text-sm font-medium`}
+                          className={`px-4 py-2 ${colors.bg} ${colors.text} rounded-full text-sm font-medium text-shadow-2xs text-shadow-dark/50`}
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    {/* Decorative corner element */}
+                    {/* Decorative corner tape */}
                     <div
                       className={`absolute top-4 right-4 w-12 h-12 ${colors.bg} -rotate-12 opacity-50`}
                     />
@@ -226,6 +103,7 @@ export function Projects() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         project={selectedProject}
+        colors={modalColors}
       />
     </section>
   );

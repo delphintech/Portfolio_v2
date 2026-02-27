@@ -1,5 +1,6 @@
 // import logo from "../assets/img/delphintech_logo"
 import { useState } from "react"
+import { Menu } from "lucide-react";
 
 export function Navbar() {
     const [open, setOpen] = useState(false);
@@ -12,7 +13,7 @@ export function Navbar() {
               <span >DelphInTech</span>
             </a>
           <button onClick={() => setOpen(!open)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-md md:hidden hover:bg-muted-1/30">
-              <svg className="w-6 h-6"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+              <Menu className="w-6 h-6" />
           </button>
 
           <div className={`w-full md:block md:w-auto overflow-hidden transition-all duration-300 ${open ? 'max-h-96' : 'max-h-0 md:max-h-none'}`} id="navbar-default">

@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 // import portrait from '../assets/images/Portrait-2023.jpg'
 import portrait from '../assets/images/portrait pro clair.png'
 import { Dumbbell, Guitar } from 'lucide-react';
+import PointyShape from '../assets/ui/pointyShape';
+import PictureBorder from '../assets/ui/pictureBorder';
 
 export function About() {
   const interests = [
@@ -10,9 +12,9 @@ export function About() {
   ];
 
   return (
-    <section className="section py-32 px-6 relative overflow-hidden" id="about">
+    <section className="section pt-32" id="about">
       
-      {/* Decorative elements */}
+      {/* Decorative circles */}
       <div className="absolute top-10 right-20 w-32 h-32 border-4 border-dashed border-accent1 rounded-full opacity-50" />
       <div className="absolute bottom-20 left-10 w-24 h-24 border-4 border-dashed border-accent3 rounded-full opacity-30" />
 
@@ -27,19 +29,7 @@ export function About() {
           <h2 className="text-5xl md:text-6xl mb-4 relative inline-block">
             <span className="relative">
               About Me
-              <svg
-                className="absolute -top-8 -right-12 w-16 h-16"
-                viewBox="0 0 64 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32 2L35 22L42 8L38 28L52 16L42 32L62 30L45 38L58 50L38 45L48 58L32 48L30 62L24 42L16 56L20 36L6 46L16 30L2 32L19 24L6 12L26 18L18 4L32 14L32 2Z"
-                  fill="currentColor"
-                  className="text-accent1"
-                  opacity="0.6"
-                />
-              </svg>
+              <PointyShape className="text-accent1 opacity-60 absolute -top-8 -right-12 w-16 h-16" />
             </span>
           </h2>
         </motion.div>
@@ -53,22 +43,7 @@ export function About() {
             className="relative"
           >
             <div className="relative w-3/4 mx-auto">
-              {/* Hand-drawn style border */}
-              <svg
-                className="absolute -inset-4 w-full h-full -m-3"
-                viewBox="0 0 400 500"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10 10 C10 8 12 5 15 5 L385 8 C388 8 395 10 395 15 L392 485 C392 488 389 495 385 495 L15 492 C12 492 5 489 5 485 L10 10"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  className="text-main"
-                  strokeLinecap="round"
-                />
-              </svg>
-
+              <PictureBorder className="absolute -inset-4 w-full h-full -m-3 text-main" />
               <img src={portrait} alt="Delphine Abouab" className="rounded-2xl w-full shadow-xl relative z-10"/>
               {/* Decorative tape effect */}
               <div className="absolute -top-3 right-12 w-16 h-8 bg-accent1/60 -rotate-12 shadow-md z-20" />

@@ -30,7 +30,7 @@
 	}
 
 	.section {
-		@apply scroll-mt-18 pt-12 bg-light
+		@apply scroll-mt-18 bg-light py-16 px-6 relative overflow-hidden
 	}
 
 	.badge {
