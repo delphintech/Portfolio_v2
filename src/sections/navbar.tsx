@@ -20,8 +20,8 @@ export function Navbar() {
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
               <li><a href="#home" className="block py-2 px-3 rounded hover:bg-muted-1/30  p-2">Home</a></li>
               <li><a href="#about" className="block py-2 px-3 rounded hover:bg-muted-1/30  p-2">About</a></li>
-              <li><a href="#resume" className="block py-2 px-3 rounded hover:bg-muted-1/30  p-2">Resume</a></li>
               <li><a href="#projects" className="block py-2 px-3  rounded hover:bg-muted-1/30 p-2">Projects</a></li>
+              <li><a href="#skills" className="block py-2 px-3  rounded hover:bg-muted-1/30 p-2">Skills</a></li>
               <li><a href="#contact" className="block py-2 px-3  rounded hover:bg-muted-1/30 p-2">Contact</a></li>
             </ul>
           </div>

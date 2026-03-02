@@ -12,7 +12,7 @@ export function About() {
   ];
 
   return (
-    <section className="section pt-32" id="about">
+    <section className="section" id="about">
       
       {/* Decorative circles */}
       <div className="absolute top-10 right-20 w-32 h-32 border-4 border-dashed border-accent1 rounded-full opacity-50" />
@@ -43,7 +43,7 @@ export function About() {
             className="relative"
           >
             <div className="relative w-3/4 mx-auto">
-              <PictureBorder className="absolute -inset-4 w-full h-full -m-3 text-main" />
+              <PictureBorder className="absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] text-main" />
               <img src={portrait} alt="Delphine Abouab" className="rounded-2xl w-full shadow-xl relative z-10"/>
               {/* Decorative tape effect */}
               <div className="absolute -top-3 right-12 w-16 h-8 bg-accent1/60 -rotate-12 shadow-md z-20" />

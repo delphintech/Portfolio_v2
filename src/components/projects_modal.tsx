@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ExternalLink, Github, Calendar, Users } from 'lucide-react';
+import { X, Globe, Github, Users } from 'lucide-react';
 import type { Project } from '../data/projects_data';
 import ModalBorder from '../assets/ui/modalBorder';
 import Carousel from './carousel';
@@ -43,7 +43,7 @@ export function ProjectModal({ isOpen, onClose, project, colors }: ProjectModalP
                 transition={{ type: 'spring', duration: 0.5 }}
                 className="relative w-full max-w-4xl"
               >
-                <ModalBorder className="absolute -inset-3 w-[104%] h-[104%] pointer-events-none border-dark" />
+                <ModalBorder className="absolute -inset-3 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)] pointer-events-none border-dark" />
 
                 <div className="relative bg-light rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] overflow-y-auto">
                   {/* Close button */}
@@ -63,6 +63,14 @@ export function ProjectModal({ isOpen, onClose, project, colors }: ProjectModalP
                     {/* Title */}
                     <h2 className="text-4xl font-bold mb-4 text-dark">
                       {project.title}
+                      { project.link && 
+                        <a href={project.link} target="_blank"
+                          className="group relative inline-flex items-center justify-center p-2 rounded-full hover:bg-dark/10 transition-colors"
+                          aria-label={`Open live site for ${project.title}`}
+                        >
+                          <Globe className={`w-6 h-6 ${colors.text}`}/>
+                        </a>
+                      }
                     </h2>
 
 

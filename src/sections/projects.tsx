@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Globe } from 'lucide-react';
 import { ProjectModal } from '../components/projects_modal';
 import { projects_data } from '../data/projects_data';
 import type { Colors } from '../components/projects_modal';
 import ProjectBorder from '../assets/ui/projectBorder';
 
 export function Projects() {
-  const [modalColors, setModalColors]  = useState<Colors >({ border: 'border-accent1/90', bg: 'bg-accent1/20', text: 'text-accent1' })
+  const colorVariants: Colors[] = [
+    { border: 'border-accent1/80', bg: 'bg-accent1/15', text: 'text-accent1' },
+    { border: 'border-accent2/80', bg: 'bg-accent2/15', text: 'text-accent2' },
+    { border: 'border-accent3/80', bg: 'bg-accent3/15', text: 'text-accent3' },
+    { border: 'border-accent4/80', bg: 'bg-accent4/15', text: 'text-accent4' },
+  ];
+
+  const [modalColors, setModalColors]  = useState<Colors >(colorVariants[0])
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,7 +26,7 @@ export function Projects() {
   };
 
   return (
-    <section className="section">
+    <section className="section" id="projects">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,10 +43,12 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto justify-items-center md:justify-items-stretch">
           {projects.map((project, index) => {
-            const i = index % 4 + 1
-            const colors = { border: `border-accent${i}/90`, bg: `bg-accent${i}/20`, text: `text-accent${i}` }
+            const colors = colorVariants[index % colorVariants.length]
+            const link = project.link ? project.link : project.github
+            const linkLogo = project.link ? <Globe className="w-5 h-5 text-dark" /> 
+              : <Github className="w-5 h-5 text-dark" /> 
 
             return (
               <motion.div
@@ -63,8 +72,8 @@ export function Projects() {
                         <button onClick={() => handleProjectClick(project, colors)} className="p-3 bg-light rounded-full hover:scale-110 transition-transform">
                           <ExternalLink onClick={() => { setIsModalOpen(true); }} className="w-5 h-5 text-dark" />
                         </button>
-                        <a href={project.github} className="p-3 bg-light rounded-full hover:scale-110 transition-transform" target="_blank">
-                          <Github className="w-5 h-5 text-dark" />
+                        <a href={link} className="p-3 bg-light rounded-full hover:scale-110 transition-transform" target="_blank">
+                          {linkLogo}
                         </a>
                       </div>
                     </div>

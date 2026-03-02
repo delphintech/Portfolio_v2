@@ -57,9 +57,9 @@ export function Skills() {
   };
 
   return (
-    <section className="py-32 px-6 bg-white relative overflow-hidden">
+    <section className="section px-6 bg-white relative overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-200/20 to-rose-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-amber-200/20 to-rose-200/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-200/20 to-orange-200/20 rounded-full blur-3xl" />
 
       {/* Decorative scattered elements */}

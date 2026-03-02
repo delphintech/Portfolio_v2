@@ -11,7 +11,7 @@ export default function Carousel ({ images, title }: CarouselProps) {
 	const isCarousel = Array.isArray(images);
 
 	return (
-		<div className="relative overflow-hidden rounded-xl aspect-video bg-dark/50">
+		<div className="relative overflow-hidden rounded-xl aspect-4/3 bg-dark/50">
 			{isCarousel ? (
 				<div className="relative w-full h-full">
 				<img src={images[carouselIndex]} alt={title}
@@ -19,15 +19,15 @@ export default function Carousel ({ images, title }: CarouselProps) {
 				<button
 					className="absolute left-2 top-1/2 -translate-y-1/2 z-10 hover:bg-light/30 rounded-full p-2"
 					disabled={carouselIndex === 0}
-					onClick={e => {	e.stopPropagation(); setCarouselIndex(carouselIndex - 1);}} ><ChevronLeft /></button>
+					onClick={() => { setCarouselIndex(carouselIndex - 1);}} ><ChevronLeft /></button>
 				<button
 					className="absolute right-2 top-1/2 -translate-y-1/2 z-10 hover:bg-light/30 rounded-full p-2"
 					disabled={carouselIndex === images.length - 1}
-					onClick={e => {	e.stopPropagation(); setCarouselIndex(carouselIndex + 1);}} ><ChevronRight /></button>
+					onClick={() => {	setCarouselIndex(carouselIndex + 1);}} ><ChevronRight /></button>
 				</div>
 			) : (
 				<img src={images} alt={title}
-					className="w-full h-full object-cover transition-transform duration-500"/>
+					className="w-full h-full object-contain transition-transform duration-500"/>
 			)}
 		</div>
 	)
