@@ -47,57 +47,52 @@ export function ProjectModal({ isOpen, onClose, project, colors }: ProjectModalP
 
                 <div className="relative bg-light rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] overflow-y-auto">
                   {/* Close button */}
-                  <button
-                    onClick={onClose}
-                    className="absolute top-6 right-6 z-10 p-2 bg-light rounded-full shadow-lg hover:scale-110 transition-transform"
-                  >
+                  <button onClick={onClose}
+                    className="absolute top-6 right-6 z-10 p-2 bg-light rounded-full shadow-lg hover:scale-110 transition-transform" >
                     <X className="w-6 h-6 text-dark" />
                   </button>
 
                   {/* Image */}
-                  <div className="relative h-80 overflow-hidden">
-                    <Carousel images={project.image} title={project.title} />
-                    <div className="absolute inset-0 bg-linear-to-t from-dark/50 to-transparent" />
+                  <Carousel images={project.image} title={project.title} />
                     
-                    {/* Decorative tape */}
-                    <div className={`absolute top-6 left-6 w-20 h-12 ${colors.bg} -rotate-12 shadow-lg opacity-80`} />
-                  </div>
+                  {/* Decorative tape */}
+                  <div className={`absolute top-0 left-0 w-20 h-12 ${colors.bg} -rotate-12 shadow-lg opacity-80`} />
+                  
+                  <div className="p-10">
 
-                  <div className="p-10 mb-6">
-
-                  {/* Title */}
-                  <h2 className="text-4xl font-bold mb-4 text-dark">
-                    {project.title}
-                  </h2>
+                    {/* Title */}
+                    <h2 className="text-4xl font-bold mb-4 text-dark">
+                      {project.title}
+                    </h2>
 
 
-                  {/* Role */}
-                  <div className={`p-4 ${colors.bg} rounded-xl mb-8`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className={`w-5 h-5 ${colors.text}`} />
-                      <span className="text-sm font-medium text-dark/80">
-                        Role
-                      </span>
-                    </div>
-                    <p className="text-dark font-semibold">{project.role}</p>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold mb-4 text-dark">
-                      Technologies Used
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {project.techs.map((tag) => (
-                        <span
-                          key={tag}
-                          className={`px-5 py-2 ${colors.bg} ${colors.text} rounded-full font-medium shadow-sm text-shadow-2xs text-shadow-dark/50`}
-                        >
-                          {tag}
+                    {/* Role */}
+                    <div className={`p-4 ${colors.bg} rounded-xl mb-8`}>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users className={`w-5 h-5 ${colors.text}`} />
+                        <span className="text-sm font-medium text-dark/80">
+                          Role
                         </span>
-                      ))}
+                      </div>
+                      <p className="text-dark font-semibold">{project.role}</p>
                     </div>
-                  </div>
+
+                    {/* Technologies */}
+                    <div className="mb-8">
+                      <h3 className="text-2xl font-bold mb-4 text-dark">
+                        Technologies Used
+                      </h3>
+                      <div className="flex flex-wrap gap-3">
+                        {project.techs.map((tag) => (
+                          <span
+                            key={tag}
+                            className={`px-5 py-2 ${colors.bg} ${colors.text} rounded-full font-medium shadow-sm text-shadow-2xs text-shadow-dark/50`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
                   {/* Key Features */}
                   <div className="mb-8">
