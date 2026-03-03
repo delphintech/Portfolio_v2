@@ -3,17 +3,11 @@ import { motion } from 'motion/react';
 import { ExternalLink, Github, Globe } from 'lucide-react';
 import { ProjectModal } from '../components/projects_modal';
 import { projects_data } from '../data/projects_data';
-import type { Colors } from '../components/projects_modal';
-import ProjectBorder from '../assets/ui/projectBorder';
+import { ProjectBorder } from '../assets/ui/borders';
+import { colorVariants } from '../data/colors';
+import type { Colors } from '../data/colors';
 
 export function Projects() {
-  const colorVariants: Colors[] = [
-    { border: 'border-accent1/80', bg: 'bg-accent1/15', text: 'text-accent1' },
-    { border: 'border-accent2/80', bg: 'bg-accent2/15', text: 'text-accent2' },
-    { border: 'border-accent3/80', bg: 'bg-accent3/15', text: 'text-accent3' },
-    { border: 'border-accent4/80', bg: 'bg-accent4/15', text: 'text-accent4' },
-  ];
-
   const [modalColors, setModalColors]  = useState<Colors >(colorVariants[0])
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

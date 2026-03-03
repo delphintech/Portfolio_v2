@@ -2,8 +2,8 @@ import { motion } from 'motion/react';
 // import portrait from '../assets/images/Portrait-2023.jpg'
 import portrait from '../assets/images/portrait pro clair.png'
 import { Dumbbell, Guitar } from 'lucide-react';
-import PointyShape from '../assets/ui/pointyShape';
-import PictureBorder from '../assets/ui/pictureBorder';
+import { PointyShape } from '../assets/ui/shapes';
+import { PictureBorder } from '../assets/ui/borders';
 
 export function About() {
   const interests = [
@@ -42,7 +42,7 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative w-3/4 mx-auto">
+            <div className="relative w-3/4 md:w-full mx-auto">
               <PictureBorder className="absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] text-main" />
               <img src={portrait} alt="Delphine Abouab" className="rounded-2xl w-full shadow-xl relative z-10"/>
               {/* Decorative tape effect */}

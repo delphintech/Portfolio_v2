@@ -1,14 +1,10 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Globe, Github, Users } from 'lucide-react';
 import type { Project } from '../data/projects_data';
-import ModalBorder from '../assets/ui/modalBorder';
+import { ModalBorder } from '../assets/ui/borders';
 import Carousel from './carousel';
+import type { Colors } from '../data/colors';
 
-export type Colors = {
-  border: string,
-  bg: string,
-  text: string
-}
 
 interface ProjectModalProps {
   onClose: () => void,
