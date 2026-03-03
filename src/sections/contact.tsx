@@ -4,7 +4,7 @@ import { ContactBorder } from '../assets/ui/borders';
 import { useState } from 'react';
 
 export function Contact() {
-  const [formData, setFormData] = useState({ name: "", mail: "", msg: "" })
+  // const [formData, setFormData] = useState({ name: "", mail: "", msg: "" })
 
   const socialLinks = [
     {
@@ -24,16 +24,16 @@ export function Contact() {
     },
   ];
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) {
-    const {name, value} = event.target
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [name]: value
-    }))
-  }
+  // function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) {
+  //   const {name, value} = event.target
+  //   setFormData(prevFormData => ({
+  //     ...prevFormData,
+  //     [name]: value
+  //   }))
+  // }
 
   return (
-    <section className="py-32 px-6 bg_colored relative overflow-hidden">
+    <section id="contact" className="py-32 px-6 bg_colored relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-accent2/20 rounded-full blur-3xl"
