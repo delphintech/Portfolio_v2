@@ -105,3 +105,20 @@ export const CertifBorder = ({ color, ...props}: SVGProps<SVGSVGElement> & { col
 		<path d="M385 168 L370 168 M385 168 L385 153" stroke="currentColor" strokeWidth="2" className={color} />
 	</svg>
 );
+
+export const ContactBorder = ( props: SVGProps<SVGSVGElement> ) => (
+	<svg
+		viewBox="0 0 700 800"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		{...props}
+	>
+	<path
+		d="M10 15 L685 10 L690 785 L15 790 Z"
+		stroke="currentColor"
+		strokeWidth="3"
+		strokeLinecap="round"
+		fill="white"
+	/>
+	</svg>
+);

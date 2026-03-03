@@ -3,7 +3,7 @@ import { ArrowDown } from 'lucide-react';
 
 export function Landing() {
   return (
-    <section id="home" className="landing bg_colored min-h-screen flex items-center justify-center relative overflow-hidden bg-linear-to-br px-6">
+    <section id="home" className="landing bg_colored min-h-screen flex items-center justify-center relative overflow-hidden px-6">
       {/* Decorative color Background*/}
       <div className="absolute top-20 right-10 w-64 h-64 bg-accent1/30 rounded-full blur-3xl"/>
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent2/20 rounded-full blur-3xl"/>

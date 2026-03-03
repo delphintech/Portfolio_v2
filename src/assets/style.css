@@ -25,7 +25,7 @@
 
 @layer components {
 	.bg_colored {
-		@apply from-dark/20 via-accent3/30 to-dark/20
+		@apply bg-linear-to-br from-dark/20 via-accent3/30 to-dark/20
 	}
 
 	.grad {
