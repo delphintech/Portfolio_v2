@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github, Globe } from 'lucide-react';
-import { ProjectModal } from '../components/projects_modal';
+import { ProjectModal } from '../components/projects-modal';
 import { projects_data } from '../data/projects_data';
 import { ProjectBorder } from '../assets/ui/borders';
 import { colorVariants } from '../data/colors';
