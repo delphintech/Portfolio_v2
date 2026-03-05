@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
-import { Mail, Github, Linkedin, Send, Heart } from 'lucide-react';
-import { ContactBorder } from '../assets/ui/borders';
-import { useState } from 'react';
+import { Mail, Github, Linkedin } from 'lucide-react';
+// import { ContactBorder } from '../assets/ui/borders';
+// import { useState } from 'react';
 
 export function Contact() {
   // const [formData, setFormData] = useState({ name: "", mail: "", msg: "" })
