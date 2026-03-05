@@ -7,9 +7,6 @@ import { StarBadge, Wave } from '../assets/ui/shapes';
 export function Skills() {
   return (
     <section id="skills" className="section px-6 bg-light relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-accent1/20 to-accemt3/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-linear-to-tr from-accent2/20 to-accent1/20 rounded-full blur-3xl" />
 
       {/* Decorative scattered elements */}
       <div className="absolute top-20 left-20 w-3 h-3 bg-accent3/40 rounded-full" />

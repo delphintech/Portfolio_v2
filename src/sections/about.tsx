@@ -78,7 +78,7 @@ export function About() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     whileHover={{ scale: 1.05, rotate: 2 }}
                     className="p-4 bg-linear-to-br from-white to-gray-50 rounded-xl shadow-md border-2 border-gray-200 hover:border-gray-300 transition-all cursor-pointer"
-                  >
+                    >
                     <item.icon className={`w-6 h-6 mb-2 ${item.color}`} />
                     <p className="text-sm font-medium text-gray-700">
                       {item.label}

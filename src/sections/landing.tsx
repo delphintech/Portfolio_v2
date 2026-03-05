@@ -17,7 +17,7 @@ export function Landing() {
         >
           <span className="text-4xl inline-block text-dark">Welcome</span>
           <br />
-          <span className="grad font-serif text-7xl mb-4">DelphInTech</span>
+          <span className="grad font-serif md:text-7xl mb-4">DelphInTech</span>
         </motion.h1>
 
         <motion.div
@@ -26,7 +26,7 @@ export function Landing() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-wrap gap-4 justify-center"
         >
-          <div className="badge ">Software engineer</div>
+          <a href="#about" className="badge">Software engineer</a>
         </motion.div>
 
         {/* Arrow Down */}

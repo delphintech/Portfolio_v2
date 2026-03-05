@@ -33,7 +33,7 @@ export function Projects() {
             Projects
           </h2>
           <p className="text-xl text-dark mt-8">
-            Form embedded exercises to Full Stack apps, always made with ❤️
+            From embedded exercises to Full Stack apps, always made with ❤️
           </p>
         </motion.div>
 
@@ -61,10 +61,20 @@ export function Projects() {
                   <div className="relative bg-light rounded-2xl overflow-hidden shadow-lg p-6">
                     <div className="relative overflow-hidden rounded-xl mb-6 aspect-video">
                       <img src={project.cover} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
-                      {/* Overlay on hover */}
-                      <div className="absolute inset-0 bg-linear-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
-                        <button onClick={() => handleProjectClick(project, colors)} className="p-3 bg-light rounded-full hover:scale-110 transition-transform">
-                          <ExternalLink onClick={() => { setIsModalOpen(true); }} className="w-5 h-5 text-dark" />
+                     {/* Mobile: Always visible */}
+                      <div className="md:hidden absolute inset-0 bg-linear-to-t from-dark/50 to-transparent flex items-end justify-center pb-6 gap-4">
+                        <button onClick={() => { handleProjectClick(project, colors); setIsModalOpen(true); }} className="p-3 bg-light/70 rounded-full hover:scale-110 transition-transform">
+                          <ExternalLink className="w-5 h-5 text-dark" />
+                        </button>
+                        <a href={link} className="p-3 bg-light/70 rounded-full hover:scale-110 transition-transform" target="_blank">
+                          {linkLogo}
+                        </a>
+                      </div>
+
+                      {/* Desktop: Show on hover */}
+                      <div className="hidden md:flex absolute inset-0 bg-linear-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-end justify-center pb-6 gap-4">
+                        <button onClick={() => { handleProjectClick(project, colors); setIsModalOpen(true); }} className="p-3 bg-light rounded-full hover:scale-110 transition-transform">
+                          <ExternalLink className="w-5 h-5 text-dark" />
                         </button>
                         <a href={link} className="p-3 bg-light rounded-full hover:scale-110 transition-transform" target="_blank">
                           {linkLogo}

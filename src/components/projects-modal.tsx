@@ -25,12 +25,11 @@ export function ProjectModal({ isOpen, onClose, project, colors }: ProjectModalP
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
             className="fixed inset-0 bg-dark/60 backdrop-blur-sm z-50"
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-50 overflow-y-auto">
+          <div onClick={onClose} className="fixed inset-0 z-50 overflow-y-auto">
             <div className="min-h-screen px-4 flex items-center justify-center py-12">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -38,6 +37,7 @@ export function ProjectModal({ isOpen, onClose, project, colors }: ProjectModalP
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ type: 'spring', duration: 0.5 }}
                 className="relative w-full max-w-4xl"
+                onClick={(e) => e.stopPropagation()}
               >
                 <ModalBorder className="absolute -inset-3 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)] pointer-events-none border-dark" />
 
@@ -135,8 +135,3 @@ export function ProjectModal({ isOpen, onClose, project, colors }: ProjectModalP
     </AnimatePresence>
   );
 }
-
-{/* <button className="flex-1 px-6 py-4 bg-dark text-light rounded-xl hover:dark/90 transition-colors font-medium flex items-center justify-center gap-2 shadow-lg">
-  <ExternalLink className="w-5 h-5" />
-  View Live Site
-</button> */}

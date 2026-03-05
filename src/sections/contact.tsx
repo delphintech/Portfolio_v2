@@ -32,11 +32,12 @@ export function Contact() {
   //   }))
   // }
 
+
   return (
     <section id="contact" className="py-32 px-6 bg_colored relative overflow-hidden">
       {/* Decorative elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-72 h-72 bg-accent2/20 rounded-full blur-3xl"
+      {/* <motion.div
+        className="absolute top-20 left-10 w-72 h-72  rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           x: [0, 50, 0],
@@ -58,7 +59,10 @@ export function Contact() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-      />
+      /> */}
+
+      <div className="absolute top-10 right-10 w-32 h-32 bg-accent1/30 rounded-full blur-3xl"/>
+      <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent2/20 rounded-full blur-3xl"/>
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
@@ -171,7 +175,7 @@ export function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className={`p-4 bg-light rounded-xl shadow-md transition-all hover:text-dark hover:bg-muted/20`}
+                className={`p-4 bg-light rounded-xl shadow-md transition-all text-dark hover:bg-muted hover:text-light`}
                 aria-label={link.label}
               >
                 <link.icon className="w-6 h-6" />
