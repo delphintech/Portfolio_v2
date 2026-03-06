@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github, Globe } from 'lucide-react';
 import { ProjectModal } from '../components/projects-modal';
+import { Exercises } from '../components/exercises';
 import { projects_data } from '../data/projects_data';
 import { ProjectBorder } from '../assets/ui/borders';
 import { colorVariants } from '../data/colors';
@@ -32,8 +33,8 @@ export function Projects() {
           <h2 className="text-5xl md:text-6xl mb-6 relative inline-block">
             Projects
           </h2>
-          <p className="text-xl text-dark mt-8">
-            From embedded exercises to Full Stack apps, always made with ❤️
+          <p className="text-xl text-dark">
+            Full stack apps made with 💜
           </p>
         </motion.div>
 
@@ -110,6 +111,9 @@ export function Projects() {
             );
           })}
         </div>
+
+        <Exercises />
+      
       </div>
 
       <ProjectModal

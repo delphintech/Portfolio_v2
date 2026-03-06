@@ -13,11 +13,11 @@ export function Landing() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl mb-8 relative"
+          className="text-5xl md:text-8xl mb-8 relative"
         >
-          <span className="text-4xl inline-block text-dark">Welcome</span>
+          <span className="text-4xl inline-block text-dark mb-4">Welcome</span>
           <br />
-          <span className="grad font-serif md:text-7xl mb-4">DelphInTech</span>
+          <span className="grad font-serif mb-4">DelphInTech</span>
         </motion.h1>
 
         <motion.div

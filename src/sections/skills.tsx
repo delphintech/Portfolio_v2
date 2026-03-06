@@ -21,7 +21,7 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl mb-6">Skills & Expertise</h2>
+          <h2 className="text-5xl md:text-6xl mb-6">Skills</h2>
           <p className="text-xl text-dark max-w-2xl mx-auto">
             A diverse set of skills cultivated through years of passion and practice
           </p>
@@ -134,7 +134,7 @@ export function Skills() {
         >
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-dark mb-2">
-              Certifications & Achievements
+              Certifications
             </h3>
             <p className="text-dark/70">
               Continuous learning and professional development

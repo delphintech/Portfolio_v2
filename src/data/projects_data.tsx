@@ -82,3 +82,18 @@ export const projects_data = [
       link: null
     }
   ];
+
+export const exercises_data = [
+    {
+      title: 'Embedded developpement',
+      description: 'Bare-metal AVR development on ATmega328P with direct register manipulation.',
+      tags: ['C', 'Registers', 'Timers', 'ART', 'SPI', 'I2C', 'EEPROM'],
+      githubUrl: 'https://github.com/delphintech/Embedded',
+    },
+    {
+      title: 'Cybersecurity',
+      description: 'Practical cybersecurity challenges: web scraping, ransomware, reverse engineering, and network penetration techniques.',
+      tags: ['Python', 'Reverse Engineering', 'SQL Injection', 'Tor', 'ARP Spoofing'],
+      githubUrl: 'https://github.com/delphintech/Cybersecurity-Pool',
+    },
+]

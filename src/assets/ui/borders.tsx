@@ -52,6 +52,24 @@ export const ProjectBorder = ( props: SVGProps<SVGSVGElement> ) => (
 	</svg>
 );
 
+export const ExerciseBorder = ( props: SVGProps<SVGSVGElement> ) => (
+	<svg
+		viewBox="0 0 300 200"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		{...props}
+	>
+		<path
+			d="M6 8 L294 6 L296 194 L8 196 Z"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			fill="white"
+		/>
+	</svg>
+);
+
 export const SkillsBorder = ( props: SVGProps<SVGSVGElement> ) => (
 	<svg
 		viewBox="0 0 400 350"
