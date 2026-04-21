@@ -13,7 +13,7 @@ export function Skills() {
       <div className="absolute top-40 right-40 w-2 h-2 bg-accent1/40 rounded-full" />
       <div className="absolute bottom-32 left-1/3 w-2 h-2 bg-accent2/40 rounded-full" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export function Skills() {
             <div className="flex flex-wrap justify-center gap-3">
               {techs.map((tech, index) => {
                 const colors = colorVariants[index % colorVariants.length];
-                
+
                 return (
                   <motion.span
                     key={tech}

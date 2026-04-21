@@ -42,8 +42,8 @@ export function Projects() {
           {projects.map((project, index) => {
             const colors = colorVariants[index % colorVariants.length]
             const link = project.link ? project.link : project.github
-            const linkLogo = project.link ? <Globe className="w-5 h-5 text-dark" /> 
-              : <Github className="w-5 h-5 text-dark" /> 
+            const linkLogo = project.link ? <Globe className="w-5 h-5 text-dark" />
+              : <Github className="w-5 h-5 text-dark" />
 
             return (
               <motion.div
@@ -113,7 +113,7 @@ export function Projects() {
         </div>
 
         <Exercises />
-      
+
       </div>
 
       <ProjectModal

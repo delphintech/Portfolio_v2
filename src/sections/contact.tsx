@@ -1,10 +1,9 @@
 import { motion } from 'motion/react';
-import { Mail, Github, Linkedin } from 'lucide-react';
-// import { ContactBorder } from '../assets/ui/borders';
-// import { useState } from 'react';
+import { Mail, Github, Linkedin, Phone, FileUser } from 'lucide-react';
+import cvFile from '../assets/CV_Delphine_Abouab - Logiciel.pdf';
+// import { ContactForm } from '../components/contactForm';
 
 export function Contact() {
-  // const [formData, setFormData] = useState({ name: "", mail: "", msg: "" })
 
   const socialLinks = [
     {
@@ -22,45 +21,21 @@ export function Contact() {
       label: 'Email',
       url: 'mailto:delphine.abouab@outlook.fr',
     },
+	{
+      icon: Phone,
+      label: 'Phone',
+      url: 'tel:+33679327751',
+    },
+	{
+      icon: FileUser,
+      label: 'CV',
+      url: cvFile,
+    }
   ];
-
-  // function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) {
-  //   const {name, value} = event.target
-  //   setFormData(prevFormData => ({
-  //     ...prevFormData,
-  //     [name]: value
-  //   }))
-  // }
 
 
   return (
     <section id="contact" className="py-32 px-6 bg_colored relative overflow-hidden">
-      {/* Decorative elements */}
-      {/* <motion.div
-        className="absolute top-20 left-10 w-72 h-72  rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 50, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-accent1/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, -50, 0],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      /> */}
-
       <div className="absolute top-10 right-10 w-32 h-32 bg-accent1/30 rounded-full blur-3xl"/>
       <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent2/20 rounded-full blur-3xl"/>
 
@@ -80,80 +55,7 @@ export function Contact() {
         </motion.div>
 
         {/* Contact form with crafty style */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          <ContactBorder className="absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] pointer-events-none text-accent1/80" />
-          <div className="relative bg-white p-10 rounded-3xl shadow-2xl">
-            {/* Decorative tape }
-            <div className="absolute -top-4 left-20 w-20 h-10 bg-accent1/60 -rotate-12 shadow-md" />
-            <div className="absolute -top-4 right-20 w-20 h-10 bg-accent3/40 rotate-12 shadow-md" />
-
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-dark mb-2"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 border-2 border-muted/20 rounded-xl focus:border-accent1/50 focus:outline-none transition-colors"
-                  placeholder="Jane Doe"
-                  onChange={handleChange} value={formData.name} required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-dark mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="mail"
-                  id="mail"
-                  className="w-full px-4 py-3 border-2 border-muted/20 rounded-xl focus:border-accent1/50 focus:outline-none transition-colors"
-                  placeholder="jane@example.com"
-                  onChange={handleChange} value={formData.mail} required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-dark mb-2"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={6}
-                  className="w-full px-4 py-3 border-2 border-muted/20 rounded-xl focus:border-accent1/50 focus:outline-none transition-colors resize-none"
-                  placeholder="Tell me about your project..."
-                  onChange={handleChange} value={formData.msg} required
-                />
-              </div>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="w-full bg-dark text-light py-4 rounded-xl font-medium hover:bg-dark/80 transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-              >
-                Send Message
-                <Send className="w-5 h-5" />
-              </motion.button>
-            </form>
-          </div>
-        </motion.div> */}
+        {/* <ContactForm /> */}
 
         {/* Social links */}
         <motion.div
@@ -177,6 +79,7 @@ export function Contact() {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className={`p-4 bg-light rounded-xl shadow-md transition-all text-dark hover:bg-muted hover:text-light`}
                 aria-label={link.label}
+				title={link.label}
               >
                 <link.icon className="w-6 h-6" />
               </motion.a>

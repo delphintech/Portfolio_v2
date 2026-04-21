@@ -8,11 +8,11 @@ export function Exercises() {
 	return (
 		<>
 			<motion.div
-			initial={{ opacity: 0, y: 30 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.6 }}
-			className="text-center mb-10 mt-20"
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.6 }}
+				className="text-center mb-10 mt-20"
 			>
 				<h3 className="text-3xl font-bold text-dark mb-2">
 				Technical Training
@@ -22,7 +22,7 @@ export function Exercises() {
 				</p>
 			</motion.div>
 
-			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			<div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
 			{exercises_data.map((project, index) => {
 				const colors = colorVariants[index % colorVariants.length];
 				return (

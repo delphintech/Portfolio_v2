@@ -5,7 +5,7 @@ interface NotificationModalProps {
   isOpen: boolean;
   onClose: () => void;
   type: 'success' | 'error';
-  message: string;
+  message: React.ReactNode;
 }
 
 export function NotificationModal({ isOpen, onClose, type, message }: NotificationModalProps) {
