@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 
 export function ContactForm() {
 	const [formData, setFormData] = useState({ name: "", mail: "", msg: "" })
-	const [ notif, setNotif ] = useState({ show: false, type: "success" as const, text: <></> })
+	const [ notif, setNotif ] = useState<{ show: boolean; type: 'success' | 'error'; text: React.ReactNode }>({ show: false, type: "success", text: <></> })
 
 	function closeNotif() {
 			setNotif(prevData => ({
