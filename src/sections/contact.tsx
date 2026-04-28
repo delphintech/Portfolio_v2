@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Mail, Github, Linkedin, Phone, FileUser } from 'lucide-react';
-import cvFile from '../assets/CV_Delphine_Abouab - Logiciel.pdf';
+import cvFile from '/Delphine Abouab - CV Developpeur Logiciel.pdf';
 // import { ContactForm } from '../components/contactForm';
 
 export function Contact() {
